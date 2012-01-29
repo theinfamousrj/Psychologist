@@ -8,57 +8,38 @@
 
 #import "PsychologistViewController.h"
 
+@interface PsychologistViewController()
+@property (nonatomic) int diagnosis;
+@end
+
 @implementation PsychologistViewController
 
-- (void)didReceiveMemoryWarning
+@synthesize diagnosis = _diagnosis;
+
+- (void)setAndShowDiagnosis:(int)diagnosis
 {
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+    self.diagnosis = diagnosis;
+    // segue
 }
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
+- (IBAction)flyingAns
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self setAndShowDiagnosis:85];
 }
 
-- (void)viewDidUnload
+- (IBAction)appleAns
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [self setAndShowDiagnosis:100];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (IBAction)dragonsAns
 {
-    [super viewWillAppear:animated];
+    [self setAndShowDiagnosis:20];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    return YES;
 }
 
 @end
